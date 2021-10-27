@@ -13,7 +13,10 @@ border_radius 8
 
 # gaps between windows
 gaps outer 0
-gaps inner 8
+gaps inner 6
+
+# max floating window size
+floating_maximum_size 1440 x 810
 
 # ========================== startup apps ==============================
 # start i3bar (plus the system information using i3status)
@@ -130,7 +133,7 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 
-# enter 'resize' mode
+# enter resize mode
 bindsym $mod+r mode "resize"
 
 # start a terminal

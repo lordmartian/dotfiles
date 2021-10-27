@@ -2,6 +2,10 @@ import:
     # Dracula color scheme
     - /home/smeetrs/Downloads/Github/alacritty-dracula/dracula.yml
 
+env:
+    # Set TERM value
+    TERM: xterm-256color
+
 window:
     # Spread additional padding evenly around the terminal content.
     dynamic_padding: true
@@ -12,7 +16,7 @@ window:
     # Allow terminal applications to change Alacritty's window title.
     dynamic_title: false
 
-    # GTK theme variant ('dark'/'light'/'None') 
+    # GTK theme variant (dark/light/None) 
     gtk_theme_variant: dark
 
     # Padding at window boundary
@@ -47,11 +51,6 @@ font:
 
     # Point size
     size: 9
-
-    # Vertical and horizontal spacing
-    offset:
-        x: 0
-        y: 2
 
 # If true, bold text is drawn using the bright color variants.
 # Not required as Bold font is supported
