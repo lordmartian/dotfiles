@@ -6,6 +6,9 @@
 " load default settings
 source $VIMRUNTIME/defaults.vim
 
+" disabling mouse support
+set mouse=
+
 " ======================= vim-plug =========================
 
 " vim-plug begin
@@ -21,7 +24,7 @@ set laststatus=2
 set noshowmode
 let g:lightline = {'colorscheme':'dracula'}
 let g:lightline.separator = {'left':'', 'right':''}
-let g:lightline.subseparator = {'left':'|', 'right':'|'}
+let g:lightline.subseparator = {'left':'│', 'right':'│'}
 
 " matching brackets coloring
 Plug 'frazrepo/vim-rainbow'
@@ -42,6 +45,9 @@ Plug 'ervandew/supertab'
 
 " easy vertical alignment
 Plug 'junegunn/vim-easy-align'
+
+" kind of outline panel
+Plug 'preservim/tagbar'
 
 " vim-plug end
 call plug#end()
