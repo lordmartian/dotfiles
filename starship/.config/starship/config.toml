@@ -1,0 +1,94 @@
+# prompt format
+format = """
+$directory$git_branch$git_status\
+$fill\
+$username$hostname$line_break\
+$character"""
+
+# right prompt format
+right_format = """$status$cmd_duration$jobs"""
+
+# consecutive prompts spaced by an empty line
+add_newline = true
+
+# directory path
+[directory]
+format = "[ ](bg:$style fg:bold black)[ $path ](bg:$style fg:bold black)[( $read_only )](bg:$read_only_style fg:bold bright-white)[]($style)"
+home_symbol = "~"
+read_only = ""
+truncation_symbol = ""
+style = "blue"
+read_only_style = "red"
+truncation_length = 3
+truncate_to_repo = true
+
+# git branch name
+[git_branch]
+format = "[](inverted $style)[ $branch ](bg:$style fg:black)"
+style = "green"
+
+# git repo status
+[git_status]
+format = "[ ($all_status$ahead_behind ) ](bg:$style fg:bold black)[]($style)"
+style = "white"
+
+# filler between left right prompts
+[fill]
+symbol = "─"
+style = "bright-black"
+
+# display username
+[username]
+format = "[]($style)[ ﭂ $user ](bg:$style fg:black)"
+style_user = "bright-purple"
+style_root = "red"
+show_always = true
+
+# display hostname
+[hostname]
+format = "[  $hostname ](bg:$style fg:bold black)"
+style = "purple"
+ssh_only = false
+trim_at = ""
+
+# two line prompt
+[line_break]
+disabled = false
+
+# prompt character
+[character]
+format = "$symbol "
+success_symbol = "[🚀](bold green)"
+error_symbol = "[💥](bold red)"
+vicmd_symbol = "[🔧](bold yellow)"
+
+# last command status
+[status]
+format = "[ $symbol ](bg:bright-black fg:$style)"
+style = "bold red"
+map_symbol = true
+pipestatus = true
+pipestatus_separator = ""
+pipestatus_format = "$pipestatus"
+symbol = "✖"
+success_symbol = "✔️"
+not_executable_symbol = "ﰸ"
+not_found_symbol = ""
+sigint_symbol = ""
+signal_symbol = "⚡"
+disabled = false
+
+# last command duration
+[cmd_duration]
+min_time = 5000
+format = "[  $duration ](bg:bright-black fg:$style)"
+style = "bold yellow"
+
+# background processes
+[jobs]
+format = "[ $symbol $number ](bg:bright-black fg:$style)"
+style = "bold cyan"
+symbol_threshold = 1
+number_threshold = 2
+symbol = ""
+
