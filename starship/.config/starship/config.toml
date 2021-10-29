@@ -57,10 +57,10 @@ disabled = false
 
 # prompt character
 [character]
-format = "$symbol  "
-success_symbol = "[](bold green)"
-error_symbol = "[](bold red)"
-vicmd_symbol = "[](bold yellow)"
+format = "$symbol "
+success_symbol = "[](bold green)"
+error_symbol = "[](bold red)"
+vicmd_symbol = "[](bold yellow)"
 
 # last command status
 [status]
@@ -74,7 +74,7 @@ symbol = ""
 success_symbol = ""
 not_executable_symbol = ""
 not_found_symbol = ""
-sigint_symbol = "ﮊ"
+sigint_symbol = ""
 signal_symbol = ""
 disabled = false
 
