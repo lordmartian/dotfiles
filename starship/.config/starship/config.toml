@@ -17,7 +17,7 @@ format = "[ ](bg:$style fg:bold black)[ $path ](bg:$style fg:bold black)[( $r
 home_symbol = "~"
 read_only = ""
 truncation_symbol = ""
-style = "blue"
+style = "bright-blue"
 read_only_style = "red"
 truncation_length = 3
 truncate_to_repo = true
@@ -25,12 +25,12 @@ truncate_to_repo = true
 # git branch name
 [git_branch]
 format = "[](inverted $style)[ $branch ](bg:$style fg:black)"
-style = "green"
+style = "purple"
 
 # git repo status
 [git_status]
-format = "[ ($all_status$ahead_behind ) ](bg:$style fg:bold black)[]($style)"
-style = "white"
+format = "[ ($all_status$ahead_behind ) ](bg:$style fg:bold bright-white)[]($style)"
+style = "bright-black"
 
 # filler between left right prompts
 [fill]
@@ -39,15 +39,15 @@ style = "bright-black"
 
 # display username
 [username]
-format = "[]($style)[ ﭂ $user ](bg:$style fg:black)"
-style_user = "bright-purple"
+format = "[]($style)[  $user ](bg:$style fg:black)"
+style_user = "bright-blue"
 style_root = "red"
 show_always = true
 
 # display hostname
 [hostname]
 format = "[  $hostname ](bg:$style fg:bold black)"
-style = "purple"
+style = "blue"
 ssh_only = false
 trim_at = ""
 
@@ -57,10 +57,10 @@ disabled = false
 
 # prompt character
 [character]
-format = "$symbol "
-success_symbol = "[🚀](bold green)"
-error_symbol = "[💥](bold red)"
-vicmd_symbol = "[🔧](bold yellow)"
+format = "$symbol  "
+success_symbol = "[](bold green)"
+error_symbol = "[](bold red)"
+vicmd_symbol = "[](bold yellow)"
 
 # last command status
 [status]
@@ -70,17 +70,17 @@ map_symbol = true
 pipestatus = true
 pipestatus_separator = ""
 pipestatus_format = "$pipestatus"
-symbol = "✖"
-success_symbol = "✔️"
-not_executable_symbol = "ﰸ"
+symbol = ""
+success_symbol = ""
+not_executable_symbol = ""
 not_found_symbol = ""
-sigint_symbol = ""
-signal_symbol = "⚡"
+sigint_symbol = "ﮊ"
+signal_symbol = ""
 disabled = false
 
 # last command duration
 [cmd_duration]
-min_time = 5000
+min_time = 1000
 format = "[  $duration ](bg:bright-black fg:$style)"
 style = "bold yellow"
 
