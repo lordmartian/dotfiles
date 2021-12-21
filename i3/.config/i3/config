@@ -8,9 +8,6 @@ font pango:DejaVu Sans Mono 8
 # disable window titlebars
 for_window [class=".*"] border pixel 0
 
-# rounded corners
-border_radius 8
-
 # gaps between windows
 gaps outer 0
 gaps inner 6
