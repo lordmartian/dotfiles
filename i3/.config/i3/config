@@ -138,4 +138,3 @@ bindsym $mod+Return exec alacritty
 
 # start browser
 bindsym $mod+slash exec firefox
-

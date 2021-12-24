@@ -6,7 +6,7 @@ export STARSHIP_CONFIG=~/.config/starship/config.toml
 # =================== oh-my-zsh settings ===================
 
 # Path to oh-my-zsh installation.
-export ZSH="/home/smeetrs/.oh-my-zsh"
+export ZSH=~/.oh-my-zsh
 
 # _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
@@ -32,4 +32,3 @@ fi
 
 # Start starship prompt
 eval "$(starship init zsh)"
-

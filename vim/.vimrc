@@ -84,4 +84,3 @@ set termguicolors
 " custom commands
 command SetCopy set nonumber norelativenumber foldcolumn=0
 command SetNoCopy set number relativenumber foldcolumn=2
-

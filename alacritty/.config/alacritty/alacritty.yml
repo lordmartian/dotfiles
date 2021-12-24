@@ -1,6 +1,6 @@
 import:
     # Dracula color scheme
-    - /home/smeetrs/Downloads/Github/alacritty-dracula/dracula.yml
+    - ~/Downloads/Github/alacritty-dracula/dracula.yml
 
 env:
     # Set TERM value
@@ -16,7 +16,7 @@ window:
     # Allow terminal applications to change Alacritty's window title.
     dynamic_title: false
 
-    # GTK theme variant (dark/light/None) 
+    # GTK theme variant (dark/light/None)
     gtk_theme_variant: dark
 
     # Padding at window boundary
@@ -26,7 +26,7 @@ window:
 
 scrolling:
     # Maximum number of lines in the scrollback buffer.
-    history: 10000
+    history: 1000
 
 font:
     # Normal font face
@@ -63,4 +63,3 @@ cursor:
     # Cursor style
     style:
         shape: Block
-
