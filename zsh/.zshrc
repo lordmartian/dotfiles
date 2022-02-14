@@ -1,20 +1,24 @@
 # ===================== init settings ======================
 
 # set env variables
-export STARSHIP_CONFIG="~/.config/starship/config.toml"
+export STARSHIP_CONFIG=~/.config/starship/config.toml
 
 # =================== oh-my-zsh settings ===================
 
 # path to oh-my-zsh installation.
-export ZSH="~/.oh-my-zsh"
+export ZSH=~/.oh-my-zsh
 
 # _ and - will be interchangeable.
-HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE=true
 
 # plugins to load
 plugins=(vi-mode zsh-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
+# load oh-my-zsh
+if [ -f $ZSH/oh-my-zsh.sh ]
+then
+    . $ZSH/oh-my-zsh.sh
+fi
 
 # ===================== my settings ========================
 
@@ -28,7 +32,7 @@ alias ls="ls --color=auto"
 # load custom aliases
 if [ -f ~/.zsh_aliases ]
 then
-    source ~/.zsh_aliases
+    . ~/.zsh_aliases
 fi
 
 # remove extra space at end of right prompt
