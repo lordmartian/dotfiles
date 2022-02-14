@@ -1,65 +1,67 @@
-import:
-    # Dracula color scheme
-    - ~/Downloads/Github/alacritty-dracula/dracula.yml
-
 env:
-    # Set TERM value
+    # set TERM value
     TERM: xterm-256color
 
 window:
-    # Spread additional padding evenly around the terminal content.
-    dynamic_padding: true
+    # window size
+    dimensions:
+        columns: 120
+        lines: 30
 
-    # Window title
+    # static window title
     title: Terminal
 
-    # Allow terminal applications to change Alacritty's window title.
+    # don't allow terminal applications to change window title.
     dynamic_title: false
 
-    # GTK theme variant (dark/light/None)
+    # theme
     gtk_theme_variant: dark
 
-    # Padding at window boundary
+    # padding at window boundary
     padding:
-        x: 4
-        y: 2
+        x: 8
+        y: 8
 
+    # transparency
+    opacity: 0.85
+
+    # startup mode
+    startup_mode: Windowed
+
+# length of scrollback buffer.
 scrolling:
-    # Maximum number of lines in the scrollback buffer.
     history: 1000
 
+# font settings
 font:
-    # Normal font face
     normal:
         family: Hack Nerd Font
         style: Regular
 
-    # Bold font face
     bold:
         family: Hack Nerd Font
         style: Bold
 
-    # Italic font face
     italic:
         family: Hack Nerd Font
         style: Italic
 
-    # Bold italic font face
     bold_italic:
         family: Hack Nerd Font
         style: Bold Italic
 
-    # Point size
-    size: 9
+    size: 10
 
-# If true, bold text is drawn using the bright color variants.
-# Not required as Bold font is supported
+# use bold font face instead of bright colours
 draw_bold_text_with_bright_colors: false
 
-# Background opacity
-background_opacity: 1.0
+# disable copy on select
+selection:
+    save_to_clipboard: false
 
+# cursor settings
 cursor:
-    # Cursor style
     style:
         shape: Block
+        blinking: Off
+

@@ -3,7 +3,7 @@
 set $mod Mod4
 
 # default interface font
-font pango:DejaVu Sans Mono 8
+font pango:Hack Nerd Font 8
 
 # disable window titlebars
 for_window [class=".*"] border pixel 0
@@ -138,3 +138,4 @@ bindsym $mod+Return exec alacritty
 
 # start browser
 bindsym $mod+slash exec firefox
+

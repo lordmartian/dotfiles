@@ -14,21 +14,18 @@ set mouse=
 " vim-plug begin
 call plug#begin('~/.vim/plugs')
 
-" dracula color scheme
-Plug 'dracula/vim', {'as':'dracula'}
-let g:dracula_italic=0
+" gruvbox color scheme
+Plug 'morhetz/gruvbox'
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italic=0
 
 " lightline status bar
 Plug 'itchyny/lightline.vim'
 set laststatus=2
 set noshowmode
-let g:lightline = {'colorscheme':'dracula'}
+let g:lightline = {'colorscheme':'one'}
 let g:lightline.separator = {'left':'', 'right':''}
 let g:lightline.subseparator = {'left':'│', 'right':'│'}
-
-" matching brackets coloring
-Plug 'frazrepo/vim-rainbow'
-au FileType c,cpp,h,py call rainbow#load()
 
 " auto add closing brackets
 Plug 'jiangmiao/auto-pairs'
@@ -69,18 +66,17 @@ set nofoldenable foldmethod=syntax foldcolumn=2
 " highlight search terms
 set hlsearch
 
-" for vim truecolor inside tmux
-let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-
 " set theme
 set background=dark
-colorscheme dracula
+colorscheme gruvbox
 
 " enable truecolor
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 set t_Co=256
 set termguicolors
 
 " custom commands
 command SetCopy set nonumber norelativenumber foldcolumn=0
 command SetNoCopy set number relativenumber foldcolumn=2
+
