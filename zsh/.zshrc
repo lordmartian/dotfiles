@@ -1,12 +1,12 @@
 # ===================== init settings ======================
 
 # set env variables
-export STARSHIP_CONFIG=~/.config/starship/config.toml
+export STARSHIP_CONFIG="~/.config/starship/config.toml"
 
 # =================== oh-my-zsh settings ===================
 
 # path to oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+export ZSH="~/.oh-my-zsh"
 
 # _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
@@ -26,7 +26,7 @@ alias tmux="tmux -u"
 alias ls="ls --color=auto"
 
 # load custom aliases
-if [[ -f ~/.zsh_aliases ]]
+if [ -f ~/.zsh_aliases ]
 then
     source ~/.zsh_aliases
 fi
