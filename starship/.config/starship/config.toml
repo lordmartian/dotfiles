@@ -1,75 +1,69 @@
-# prompt format
-format = """
-$directory$git_branch$git_status\
-$fill\
-$username$hostname$line_break\
-$character"""
-
-# right prompt format
-right_format = """$status$cmd_duration$jobs"""
-
 # consecutive prompts spaced by an empty line
 add_newline = true
 
+# scan files timeout
+scan_timeout = 5
+
+# command exec timeout
+command_timeout = 100
+
+# prompt for incomplete commands
+continuation_prompt = "[](white)   "
+
+# prompt format
+format = """
+$shell$directory$git_branch$git_status\
+$fill\
+$status$cmd_duration$jobs$username$hostname$line_break\
+$character"""
+
+# display which shell
+[shell]
+format = "[](black)[$indicator ](bg:black fg:$style)"
+bash_indicator = "⚓"
+zsh_indicator = "🚀"
+fish_indicator = "🐠"
+tcsh_indicator = "💤"
+style = "white"
+disabled = false
+
 # directory path
 [directory]
-format = "[ ](bg:$style fg:bold black)[ $path ](bg:$style fg:bold black)[( $read_only )](bg:$read_only_style fg:bold bright-white)[]($style)"
+format = "[](bg:black fg:$style)[  $path ](bg:$style fg:bold black)[( $read_only )](bg:$read_only_style fg:bold bright-white)[]($style)"
 home_symbol = "~"
 read_only = ""
 truncation_symbol = ""
 style = "bright-blue"
 read_only_style = "red"
 truncation_length = 3
+fish_style_pwd_dir_length = 2
 truncate_to_repo = true
+disabled = false
 
 # git branch name
 [git_branch]
-format = "[](inverted $style)[ $branch ](bg:$style fg:black)"
-style = "purple"
+format = "[]($style)[  $branch ](bg:$style fg:black)"
+style = "white"
+disabled = false
 
 # git repo status
 [git_status]
-format = "[ ($all_status$ahead_behind ) ](bg:$style fg:bold bright-white)[]($style)"
+format = "[ ($all_status )$ahead_behind ](bg:$style fg:bold bright-white)[]($style)"
+up_to_date = ""
 style = "bright-black"
+disabled = false
 
 # filler between left right prompts
 [fill]
-symbol = "─"
+symbol = ""
 style = "bright-black"
-
-# display username
-[username]
-format = "[]($style)[  $user ](bg:$style fg:black)"
-style_user = "bright-blue"
-style_root = "red"
-show_always = true
-
-# display hostname
-[hostname]
-format = "[  $hostname ](bg:$style fg:bold black)"
-style = "blue"
-ssh_only = false
-trim_at = ""
-
-# two line prompt
-[line_break]
 disabled = false
-
-# prompt character
-[character]
-format = "$symbol "
-success_symbol = "[](bold green)"
-error_symbol = "[](bold red)"
-vicmd_symbol = "[](bold yellow)"
 
 # last command status
 [status]
-format = "[ $symbol ](bg:bright-black fg:$style)"
-style = "bold red"
+format = "[]($style)[ $symbol ](bg:$style fg:bright-white)[]($style)"
+style = "red"
 map_symbol = true
-pipestatus = true
-pipestatus_separator = ""
-pipestatus_format = "$pipestatus"
 symbol = ""
 success_symbol = ""
 not_executable_symbol = ""
@@ -81,14 +75,43 @@ disabled = false
 # last command duration
 [cmd_duration]
 min_time = 1000
-format = "[  $duration ](bg:bright-black fg:$style)"
-style = "bold yellow"
+format = "[]($style)[  $duration ](bg:$style fg:black)[]($style)"
+style = "yellow"
+disabled = false
 
 # background processes
 [jobs]
-format = "[ $symbol $number ](bg:bright-black fg:$style)"
-style = "bold cyan"
+format = "[]($style)[ ($number )$symbol ](bg:$style fg:black)[]($style)"
+style = "cyan"
 symbol_threshold = 1
 number_threshold = 2
-symbol = ""
+symbol = ""
+disabled = false
+
+# display username
+[username]
+format = "[](bright-black)[  $user ](bg:bright-black fg:$style)"
+style_user = "bright-green"
+show_always = true
+disabled = false
+
+# display hostname
+[hostname]
+format = "[](bg:bright-black $style)[  $hostname ](bg:$style fg:bold bright-white)[]($style)"
+style = "green"
+ssh_only = false
+trim_at = ""
+disabled = false
+
+# two line prompt
+[line_break]
+disabled = false
+
+# prompt character
+[character]
+format = "$symbol "
+success_symbol = "[](bold bright-red)[](bold bright-yellow)[](bold bright-green)"
+error_symbol = "[_](bold bright-red)"
+vicmd_symbol = "[](bold bright-yellow)"
+disabled = false
 
