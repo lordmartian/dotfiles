@@ -42,7 +42,7 @@ disabled = false
 
 # git branch name
 [git_branch]
-format = "[]($style)[  $branch ](bg:$style fg:black)"
+format = "[]($style)[  $branch ](bg:$style fg:black)[](bg:bright-black $style)"
 style = "white"
 disabled = false
 
