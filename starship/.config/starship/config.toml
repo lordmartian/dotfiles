@@ -5,7 +5,7 @@ add_newline = true
 scan_timeout = 5
 
 # command exec timeout
-command_timeout = 100
+command_timeout = 500
 
 # prompt for incomplete commands
 continuation_prompt = "[](white)   "

@@ -67,6 +67,7 @@ set nofoldenable foldmethod=syntax foldcolumn=2
 set hlsearch
 
 " set theme
+let &t_ut=""
 set background=dark
 colorscheme gruvbox
 
