@@ -8,7 +8,7 @@ scan_timeout = 5
 command_timeout = 500
 
 # prompt for incomplete commands
-continuation_prompt = "[](white)   "
+continuation_prompt = "[](white)   "
 
 # prompt format
 format = """
@@ -23,7 +23,6 @@ format = "[](black)[$indicator ](bg:black fg:$style)"
 bash_indicator = "⚓"
 zsh_indicator = "🚀"
 fish_indicator = "🐠"
-tcsh_indicator = "💤"
 style = "white"
 disabled = false
 
@@ -110,8 +109,8 @@ disabled = false
 # prompt character
 [character]
 format = "$symbol "
-success_symbol = "[](bold bright-red)[](bold bright-yellow)[](bold bright-green)"
-error_symbol = "[_](bold bright-red)"
-vicmd_symbol = "[](bold bright-yellow)"
+success_symbol = "[](bold bright-red)[](bold bright-yellow)[](bold bright-green)"
+error_symbol = "[](bold bright-red)"
+vicmd_symbol = "[ ](bold bright-yellow)"
 disabled = false
 
