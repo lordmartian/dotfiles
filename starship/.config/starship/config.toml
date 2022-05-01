@@ -1,12 +1,6 @@
 # consecutive prompts spaced by an empty line
 add_newline = true
 
-# scan files timeout
-scan_timeout = 5
-
-# command exec timeout
-command_timeout = 500
-
 # prompt for incomplete commands
 continuation_prompt = "[](white)   "
 
@@ -14,7 +8,7 @@ continuation_prompt = "[](white)   "
 format = """
 $shell$directory$git_branch$git_status\
 $fill\
-$status$cmd_duration$jobs$username$hostname$line_break\
+$cmd_duration$jobs$username$hostname$line_break\
 $character"""
 
 # display which shell
@@ -32,7 +26,7 @@ format = "[](bg:black fg:$style)[  $path ](bg:$style fg:bold black)[( $rea
 home_symbol = "~"
 read_only = ""
 truncation_symbol = ""
-style = "bright-blue"
+style = "blue"
 read_only_style = "red"
 truncation_length = 3
 fish_style_pwd_dir_length = 2
@@ -58,19 +52,6 @@ symbol = ""
 style = "bright-black"
 disabled = false
 
-# last command status
-[status]
-format = "[]($style)[ $symbol ](bg:$style fg:bright-white)[]($style)"
-style = "red"
-map_symbol = true
-symbol = ""
-success_symbol = ""
-not_executable_symbol = ""
-not_found_symbol = ""
-sigint_symbol = ""
-signal_symbol = ""
-disabled = false
-
 # last command duration
 [cmd_duration]
 min_time = 1000
@@ -80,23 +61,22 @@ disabled = false
 
 # background processes
 [jobs]
-format = "[]($style)[ ($number )$symbol ](bg:$style fg:black)[]($style)"
-style = "cyan"
+format = "[]($style)[ $symbol ](bg:$style fg:black)[]($style)"
+style = "purple"
 symbol_threshold = 1
-number_threshold = 2
-symbol = ""
+symbol = " "
 disabled = false
 
 # display username
 [username]
-format = "[](bright-black)[  $user ](bg:bright-black fg:$style)"
-style_user = "bright-green"
+format = "[](bright-black)[  $user ](bg:bright-black fg:$style)"
+style_user = "white"
 show_always = true
 disabled = false
 
 # display hostname
 [hostname]
-format = "[](bg:bright-black $style)[  $hostname ](bg:$style fg:bold bright-white)[]($style)"
+format = "[](bg:bright-black $style)[  $hostname ](bg:$style fg:bold black)[]($style)"
 style = "green"
 ssh_only = false
 trim_at = ""
@@ -109,8 +89,8 @@ disabled = false
 # prompt character
 [character]
 format = "$symbol "
-success_symbol = "[](bold bright-red)[](bold bright-yellow)[](bold bright-green)"
-error_symbol = "[](bold bright-red)"
-vicmd_symbol = "[ ](bold bright-yellow)"
+success_symbol = "[](red)[](yellow)[](green)"
+error_symbol = "[ﮊ ](red)"
+vicmd_symbol = "[ ](yellow)"
 disabled = false
 
