@@ -3,13 +3,13 @@
 " - Use single quotes for vim-plug
 " ======================================
 
-" improved settings
-set nocompatible
-
 " ######################## plugins #########################
 
 " vim-plug begin
 call plug#begin('~/.vim/plugs')
+
+" sensible defaults
+Plug 'tpope/vim-sensible'
 
 " base16 color scheme
 Plug 'chriskempson/base16-vim'
@@ -20,58 +20,60 @@ Plug 'tribela/vim-transparent'
 
 " lightline status bar
 Plug 'itchyny/lightline.vim'
-set laststatus=2
 set noshowmode
-let g:lightline = {'colorscheme':'base16_default_dark'}
-let g:lightline.separator = {'left':'', 'right':''}
-let g:lightline.subseparator = {'left':'│', 'right':'│'}
+let g:lightline = {
+\   'colorscheme':'base16_default_dark',
+\   'separator': {
+\       'left':'',
+\       'right':''
+\   },
+\   'subseparator': {
+\       'left':'│',
+\       'right':'│'
+\   },
+\   'component': {
+\       'left_end': '%#LightlineLeft_active_0_1#%#LightlineLeft_active_0#',
+\       'right_end': '%#LightlineRight_active_0_1#%#LightlineRight_active_0#',
+\       'tab_left_end': '%#LightlineLeft_tabline_0_1#%#LightlineLeft_tabline_0#',
+\       'tab_right_end': '%#LightlineRight_tabline_0_1#%#LightlineRight_tabline_0#',
+\       'vim_icon': ''
+\   },
+\   'component_visible_condition': {
+\       'left_end':'0',
+\       'right_end':'0',
+\       'tab_left_end':'0',
+\       'tab_right_end':'0'
+\   },
+\   'active': {
+\       'left': [['left_end', 'mode', 'paste'], ['readonly', 'relativepath']],
+\       'right': [['lineinfo', 'right_end'], ['percent'], ['fileencoding', 'fileformat', 'filetype']]
+\   },
+\   'tabline': {
+\       'left': [['tab_left_end', 'vim_icon', 'tabs']],
+\       'right': [['close', 'tab_right_end']]
+\   }
+\}
+let g:lightline.component_raw = {'left_end':1, 'right_end':1, 'tab_left_end':1, 'tab_right_end':1}
+
+" remember cursor position
+Plug 'farmergreg/vim-lastplace'
 
 " auto add closing brackets
 Plug 'jiangmiao/auto-pairs'
 
-" easy commenting
-Plug 'preservim/nerdcommenter'
-
 " tab completion
 Plug 'ervandew/supertab'
-
-" easy vertical alignment
-Plug 'junegunn/vim-easy-align'
 
 " vim-plug end
 call plug#end()
 
 " ####################### settings #########################
 
-" file type specific settings
-filetype plugin indent on
-
-" remember last cursor position
-augroup vimStartup
-  au!
-  autocmd BufReadPost *
-    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-    \ |   exe "normal! g`\""
-    \ | endif
-augroup END
-
-" allow backspacing over everything in insert mode.
-set backspace=indent,eol,start
-
-" command history
-set history=1000
+" always show tabline
+set showtabline=2
 
 " show keys typed at bottom right
 set showcmd
-
-" tab completion in command mode
-set wildmenu
-
-" show @@@ in the last line if it is truncated.
-set display=truncate
-
-" context around the cursor
-set scrolloff=5
 
 " disabling mouse support
 set mouse=
@@ -81,23 +83,18 @@ set relativenumber
 
 " indentation with 4 spaces
 set tabstop=4 shiftwidth=4 expandtab
-set autoindent
 
 " set up code folding
 set nofoldenable foldmethod=syntax foldcolumn=1
 
 " highlight search terms
 set hlsearch
-set incsearch
 
 " highlight line with cursor
 set cursorline
 
 " enable wrapping
 set wrap
-
-" syntax highlighting
-syntax on
 
 " enable truecolors and set theme
 let &t_ut=""
