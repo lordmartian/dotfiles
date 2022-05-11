@@ -64,6 +64,11 @@ Plug 'jiangmiao/auto-pairs'
 " tab completion
 Plug 'ervandew/supertab'
 
+" load any external project specific plugins
+if filereadable('~/.ext_plugins.vim')
+    source ~/.ext_plugins.vim
+endif
+
 " vim-plug end
 call plug#end()
 
