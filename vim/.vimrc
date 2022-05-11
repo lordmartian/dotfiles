@@ -65,7 +65,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
 
 " load any external project specific plugins
-if filereadable('~/.ext_plugins.vim')
+if filereadable(expand('~/.ext_plugins.vim'))
     source ~/.ext_plugins.vim
 endif
 
