@@ -14,9 +14,7 @@ $character"""
 # display which shell
 [shell]
 format = "[](black)[$indicator ](bg:black fg:$style)"
-bash_indicator = "⚓"
 zsh_indicator = "🚀"
-fish_indicator = "🐠"
 style = "white"
 disabled = false
 
