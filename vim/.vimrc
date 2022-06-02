@@ -23,37 +23,15 @@ Plug 'itchyny/lightline.vim'
 set noshowmode
 let g:lightline = {
 \   'colorscheme':'base16_default_dark',
-\   'separator': {
-\       'left':'',
-\       'right':''
-\   },
 \   'subseparator': {
 \       'left':'│',
 \       'right':'│'
 \   },
-\   'component': {
-\       'left_end': '%#LightlineLeft_active_0_1#%#LightlineLeft_active_0#',
-\       'right_end': '%#LightlineRight_active_0_1#%#LightlineRight_active_0#',
-\       'tab_left_end': '%#LightlineLeft_tabline_0_1#%#LightlineLeft_tabline_0#',
-\       'tab_right_end': '%#LightlineRight_tabline_0_1#%#LightlineRight_tabline_0#',
-\       'vim_icon': ''
-\   },
-\   'component_visible_condition': {
-\       'left_end':'0',
-\       'right_end':'0',
-\       'tab_left_end':'0',
-\       'tab_right_end':'0'
-\   },
 \   'active': {
-\       'left': [['left_end', 'mode', 'paste'], ['readonly', 'relativepath']],
+\       'left': [['left_end', 'mode', 'paste'], ['readonly']],
 \       'right': [['lineinfo', 'right_end'], ['percent'], ['fileencoding', 'fileformat', 'filetype']]
-\   },
-\   'tabline': {
-\       'left': [['tab_left_end', 'vim_icon', 'tabs']],
-\       'right': [['close', 'tab_right_end']]
 \   }
 \}
-let g:lightline.component_raw = {'left_end':1, 'right_end':1, 'tab_left_end':1, 'tab_right_end':1}
 
 " remember cursor position
 Plug 'farmergreg/vim-lastplace'
