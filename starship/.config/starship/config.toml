@@ -6,78 +6,66 @@ continuation_prompt = "[](white)   "
 
 # prompt format
 format = """
-$shell$directory$git_branch$git_status\
+$username$hostname$directory\
 $fill\
-$cmd_duration$jobs$username$hostname$line_break\
+$jobs$cmd_duration$git_branch\
+$line_break\
 $character"""
-
-# display which shell
-[shell]
-format = "[](black)[$indicator ](bg:black fg:$style)"
-zsh_indicator = "🚀"
-style = "white"
-disabled = false
-
-# directory path
-[directory]
-format = "[](bg:black fg:$style)[  $path ](bg:$style fg:bold black)[( $read_only )](bg:$read_only_style fg:bold bright-white)[]($style)"
-home_symbol = "~"
-read_only = ""
-truncation_symbol = ""
-style = "blue"
-read_only_style = "red"
-truncation_length = 3
-fish_style_pwd_dir_length = 2
-truncate_to_repo = true
-disabled = false
-
-# git branch name
-[git_branch]
-format = "[]($style)[  $branch ](bg:$style fg:black)[](bg:bright-black $style)"
-style = "white"
-disabled = false
-
-# git repo status
-[git_status]
-format = "[ ($all_status )$ahead_behind ](bg:$style fg:bold bright-white)[]($style)"
-up_to_date = ""
-style = "bright-black"
-disabled = false
-
-# filler between left right prompts
-[fill]
-symbol = ""
-style = "bright-black"
-disabled = false
-
-# last command duration
-[cmd_duration]
-min_time = 1000
-format = "[]($style)[  $duration ](bg:$style fg:black)[]($style)"
-style = "yellow"
-disabled = false
-
-# background processes
-[jobs]
-format = "[]($style)[ $symbol ](bg:$style fg:black)[]($style)"
-style = "purple"
-symbol_threshold = 1
-symbol = " "
-disabled = false
 
 # display username
 [username]
-format = "[](bright-black)[  $user ](bg:bright-black fg:$style)"
-style_user = "white"
+format = "[ $user](bg:237 fg:bold $style)"
+style_root = "red"
+style_user = "cyan"
 show_always = true
 disabled = false
 
 # display hostname
 [hostname]
-format = "[](bg:bright-black $style)[  $hostname ](bg:$style fg:bold black)[]($style)"
-style = "green"
+format = "[@$hostname ](bg:237 fg:bold $style)"
+style = "cyan"
 ssh_only = false
 trim_at = ""
+disabled = false
+
+# directory path
+[directory]
+format = "[ $path ](fg:bold $style)[($read_only)](fg:$read_only_style)"
+home_symbol = "~"
+read_only = ""
+truncation_symbol = ""
+style = "purple"
+read_only_style = "red"
+truncation_length = 2
+fish_style_pwd_dir_length = 2
+truncate_to_repo = true
+disabled = false
+
+# filler between left right prompts
+[fill]
+symbol = " "
+style = "bright-black"
+disabled = false
+
+# background processes
+[jobs]
+format = "[ $symbol ](fg:$style)"
+style = "green"
+symbol_threshold = 1
+symbol = ""
+disabled = false
+
+# last command duration
+[cmd_duration]
+min_time = 1000
+format = "[ $duration ](bg:239 fg:bold $style)"
+style = "yellow"
+disabled = false
+
+# git repo indicator
+[git_branch]
+format = "[  ](bg:$style fg:black)"
+style = "white"
 disabled = false
 
 # two line prompt
@@ -88,7 +76,7 @@ disabled = false
 [character]
 format = "$symbol "
 success_symbol = "[](red)[](yellow)[](green)"
-error_symbol = "[ﮊ ](red)"
-vicmd_symbol = "[ ](yellow)"
+error_symbol = "[](red)"
+vicmd_symbol = "[](yellow)"
 disabled = false
 
