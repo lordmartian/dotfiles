@@ -1,6 +1,6 @@
-# #################### env variables #######################
+# ##################### variables ##########################
 
-# starship config location
+# starship config file location
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 
 # history file
@@ -10,14 +10,43 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-# preferred editor
-EDITOR=vim
-VISUAL=vim
-
-# zgenom related
+# call zgenom reset when file changes
 ZGEN_RESET_ON_CHANGE=(~/.zshrc)
 
-# #################### shell options #######################
+# only current dir in terminal title
+ZSH_WINDOW_TITLE_DIRECTORY_DEPTH=1
+
+# auto suggestion strategy
+ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+
+# ####################### plugins ##########################
+
+# load zgenom
+. ~/.zgenom/zgenom.zsh
+
+# update zgenom
+zgenom autoupdate
+
+# check if init script exists
+if ! zgenom saved
+then
+    # setting terminal title
+    zgenom load olets/zsh-window-title
+
+    # extra completions
+    zgenom load zsh-users/zsh-completions
+
+    # auto suggestions
+    zgenom load zsh-users/zsh-autosuggestions
+
+    # syntax highlighting
+    zgenom load zsh-users/zsh-syntax-highlighting
+
+    # generate init script
+    zgenom save
+fi
+
+# ###################### options ###########################
 
 # show start time and duration in history
 setopt extended_history
@@ -42,31 +71,13 @@ setopt complete_in_word
 # let command give error if no match
 unsetopt nomatch
 
-# ####################### plugins ##########################
+# don't notify immediately
+unsetopt notify
 
-# load zgenom
-. ~/.zgenom/zgenom.zsh
+# default/emacs keybindings
+bindkey -e
 
-# update zgenom
-zgenom autoupdate
-
-# check if init script exists
-if ! zgenom saved
-then
-    # extra completions
-    zgenom load zsh-users/zsh-completions
-
-    # auto suggestions
-    zgenom load zsh-users/zsh-autosuggestions
-
-    # syntax highlighting
-    zgenom load zsh-users/zsh-syntax-highlighting
-
-    # generate init script
-    zgenom save
-fi
-
-# ######################### misc ###########################
+# ######################### aliases ########################
 
 # common aliases
 alias tmux="tmux -u"
@@ -77,6 +88,8 @@ if [ -f ~/.zsh_aliases ]
 then
     . ~/.zsh_aliases
 fi
+
+# ####################### prompt ###########################
 
 # starship prompt
 eval "$(starship init zsh)"
