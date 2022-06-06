@@ -134,7 +134,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # start browser
 bindsym $mod+slash exec firefox
