@@ -17,7 +17,7 @@ ZGEN_RESET_ON_CHANGE=(~/.zshrc)
 ZSH_WINDOW_TITLE_DIRECTORY_DEPTH=1
 
 # auto suggestion strategy
-ZSH_AUTOSUGGEST_STRATEGY=(completion history)
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # ####################### plugins ##########################
 
