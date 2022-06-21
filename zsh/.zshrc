@@ -13,9 +13,6 @@ SAVEHIST=10000
 # call zgenom reset when file changes
 ZGEN_RESET_ON_CHANGE=(~/.zshrc)
 
-# only current dir in terminal title
-ZSH_WINDOW_TITLE_DIRECTORY_DEPTH=1
-
 # auto suggestion strategy
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
@@ -30,9 +27,6 @@ zgenom autoupdate
 # check if init script exists
 if ! zgenom saved
 then
-    # setting terminal title
-    zgenom load olets/zsh-window-title
-
     # extra completions
     zgenom load zsh-users/zsh-completions
 
@@ -76,6 +70,39 @@ unsetopt notify
 
 # default/emacs keybindings
 bindkey -e
+
+# ##################### terminal title #####################
+
+# command to update terminal title
+function set_title()
+{
+    case $TERM in
+        screen*|tmux*)
+            echo -ne "\033k$1\033\\";;
+        *)
+            echo -ne "\033]0;$1\007";;
+    esac
+}
+
+# command to run before showing prompt
+function set_title_precmd()
+{
+    local TITLE=$(print -P "%1~")
+    set_title $TITLE
+}
+
+# command to run before executing any command
+function set_title_preexec()
+{
+    setopt extended_glob
+    local TITLE=$(print -P "%1~: ${1[(wr)^(*=*|sudo|-*)]:gs/%/%%}")
+    set_title $TITLE 
+}
+
+# add hooks
+autoload -U add-zsh-hook
+add-zsh-hook precmd set_title_precmd
+add-zsh-hook preexec set_title_preexec
 
 # ######################### aliases ########################
 
