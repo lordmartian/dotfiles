@@ -107,6 +107,8 @@ add-zsh-hook preexec set_title_preexec
 # ######################### aliases ########################
 
 # common aliases
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
 alias tmux="tmux -u"
 alias history="history -ndD"
 
