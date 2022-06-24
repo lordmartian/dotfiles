@@ -95,7 +95,7 @@ function set_title_precmd()
 function set_title_preexec()
 {
     setopt extended_glob
-    local TITLE=$(print -P "%1~: ${1[(wr)^(*=*|sudo|-*)]:gs/%/%%}")
+    local TITLE=$(print -P "%1~:${1[(wr)^(*=*|sudo|-*)]:gs/%/%%}")
     set_title $TITLE 
 }
 
