@@ -14,7 +14,7 @@ $character"""
 
 # display username
 [username]
-format = "[ $user](bg:237 fg:bold $style)"
+format = "[ $user](bg:#383838 fg:bold $style)"
 style_root = "red"
 style_user = "cyan"
 show_always = true
@@ -22,7 +22,7 @@ disabled = false
 
 # display hostname
 [hostname]
-format = "[@$hostname ](bg:237 fg:bold $style)"
+format = "[@$hostname ](bg:#383838 fg:bold $style)"
 style = "cyan"
 ssh_only = false
 trim_at = ""
@@ -58,7 +58,7 @@ disabled = false
 # last command duration
 [cmd_duration]
 min_time = 1000
-format = "[ $duration ](bg:239 fg:bold $style)"
+format = "[ $duration ](bg:#484848 fg:bold $style)"
 style = "yellow"
 disabled = false
 
