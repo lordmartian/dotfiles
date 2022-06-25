@@ -3,24 +3,20 @@
 " - Use single quotes for vim-plug
 " ======================================
 
+" be improved over vi
+set nocompatible
+
 " ######################## plugins #########################
 
 " vim-plug begin
 call plug#begin('~/.vim/plugs')
 
-" sensible defaults
-Plug 'tpope/vim-sensible'
-
 " base16 color scheme
 Plug 'chriskempson/base16-vim'
 Plug 'mike-hearn/base16-vim-lightline'
 
-" transparent background
-Plug 'tribela/vim-transparent'
-
 " lightline status bar
 Plug 'itchyny/lightline.vim'
-set noshowmode
 let g:lightline = {
 \   'colorscheme':'base16_default_dark',
 \   'subseparator': {
@@ -28,13 +24,10 @@ let g:lightline = {
 \       'right':'│'
 \   },
 \   'active': {
-\       'left': [['left_end', 'mode', 'paste'], ['readonly']],
-\       'right': [['lineinfo', 'right_end'], ['percent'], ['fileencoding', 'fileformat', 'filetype']]
+\       'left': [['mode', 'paste'], ['readonly']],
+\       'right': [['lineinfo'], ['percent'], ['fileencoding', 'fileformat', 'filetype']]
 \   }
 \}
-
-" remember cursor position
-Plug 'farmergreg/vim-lastplace'
 
 " auto add closing brackets
 Plug 'jiangmiao/auto-pairs'
@@ -52,26 +45,43 @@ call plug#end()
 
 " ####################### settings #########################
 
-" always show tabline
+" file specific settings
+filetype plugin indent on
+
+" enable syntax highlighting
+syntax on
+
+" length of command history
+set history=1000
+
+" suggestions menu
+set wildmenu
+set wildmode=longest:full,full
+
+" always show tabline and statusline
 set showtabline=2
+set laststatus=2
 
 " show keys typed at bottom right
 set showcmd
 
-" disabling mouse support
-set mouse=
+" dont show mode as we are using lightline
+set noshowmode
+
+" context around cursor
+set scrolloff=1
 
 " relative line numbering
 set relativenumber
 
 " indentation with 4 spaces
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=4 shiftwidth=4 expandtab autoindent
 
 " set up code folding
 set nofoldenable foldmethod=syntax foldcolumn=1
 
-" highlight search terms
-set hlsearch
+" instantly search and highlight
+set incsearch hlsearch
 
 " highlight line with cursor
 set cursorline
@@ -87,7 +97,46 @@ set termguicolors
 set background=dark
 colorscheme base16-default-dark
 
-" custom commands
+" tab completion
+set complete=.,t,i
+
+" show @@@ at end when line doesn't fit
+set display=lastline
+
+" consider normal, binary and hex numbers for C-a, C-x
+set nrformats=bin,hex
+
+" disabling mouse support
+set mouse=
+
+" allow backspacing over everything
+set backspace=indent,eol,start
+
+" automatically load changed files
+set autoread
+
+" timeout
+set ttimeout
+set ttimeoutlen=100
+
+" ######################### misc ###########################
+
+" remember cursor position
+augroup vim_startup
+    au!
+    autocmd BufReadPost *
+    \   if line("'\"") >= 1 && line("'\"") <= line("$") |
+    \       exe "normal! g`\"" |
+    \   endif
+augroup END
+
+" remove background
+hi Normal guibg=NONE ctermbg=NONE
+hi LineNr guibg=NONE ctermbg=NONE
+hi CursorLineNr guibg=NONE ctermbg=NONE
+hi FoldColumn guibg=NONE ctermbg=NONE
+
+" commands to allow copying from vim
 command SetCopy set norelativenumber foldcolumn=0
 command SetNoCopy set relativenumber foldcolumn=1
 

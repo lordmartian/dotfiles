@@ -48,8 +48,7 @@ setopt extended_history
 # remove unrequired spaces
 setopt hist_reduce_blanks
 
-# append (immediately) history from all sessions
-setopt append_history
+# immediately append history from all sessions
 setopt inc_append_history_time
 
 # avoid duplicates
@@ -62,8 +61,11 @@ setopt hist_verify
 # complete path from prefixes
 setopt complete_in_word
 
+# show completions on first tab
+unsetopt list_ambiguous
+
 # let command give error if no match
-unsetopt nomatch
+unsetopt no_match
 
 # don't notify immediately
 unsetopt notify
