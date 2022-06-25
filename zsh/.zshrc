@@ -14,7 +14,7 @@ SAVEHIST=10000
 ZGEN_RESET_ON_CHANGE=(~/.zshrc)
 
 # auto suggestion strategy
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
 
 # ####################### plugins ##########################
 
