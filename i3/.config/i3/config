@@ -26,6 +26,9 @@ bar {
 # restore wallpaper
 exec --no-startup-id nitrogen --restore
 
+# start compositor
+exec --no-startup-id picom
+
 # ################### key bindings #########################
 
 # screen brightness keys
