@@ -11,7 +11,7 @@ for_window [class=".*"] border pixel 0
 
 # gaps between windows
 gaps outer 6
-gaps inner 6
+gaps inner 10
 
 # max floating window size
 floating_maximum_size 1440 x 810
