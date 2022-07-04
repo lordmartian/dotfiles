@@ -4,13 +4,13 @@
 set $mod Mod4
 
 # default interface font
-font pango:Hack Nerd Font 8
+font pango:SpaceMono Nerd Font 8
 
 # disable window titlebars
 for_window [class=".*"] border pixel 0
 
 # gaps between windows
-gaps outer 6
+gaps outer 0
 gaps inner 10
 
 # max floating window size
@@ -18,16 +18,14 @@ floating_maximum_size 1440 x 810
 
 # #################### startup apps ########################
 
-# start i3bar (plus the system information using i3status)
-bar {
-    status_command i3status
-}
+# start compositor
+exec --no-startup-id picom
 
 # restore wallpaper
 exec --no-startup-id nitrogen --restore
 
-# start compositor
-exec --no-startup-id picom
+# start polybar
+exec --no-startup-id ~/.config/polybar/launch.sh
 
 # ################### key bindings #########################
 
@@ -39,7 +37,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -q set 2%-
 floating_modifier $mod
 
 # start dmenu
-bindsym $mod+e exec "rofi -show run"
+bindsym $mod+e exec "rofi -show drun -show-icons"
 
 # kill focused window
 bindsym $mod+q kill
