@@ -58,7 +58,7 @@ disabled = false
 # last command duration
 [cmd_duration]
 min_time = 1000
-format = "[ $duration ](bg:#484848 fg:bold $style)"
+format = "[ $duration ](bg:bright-black fg:bold $style)"
 style = "yellow"
 disabled = false
 
